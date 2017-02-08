@@ -1,0 +1,17 @@
+{
+  "name": "mitchell-webb-bot",
+  "version": "1.0.0",
+  "description": "Daily Mitchell and Webb Videos",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "node-twitterbot": "^0.2.2",
+    "slackbots": "^1.0.2",
+    "youtube-playlist-info": "^0.1.0"
+  }
+}
