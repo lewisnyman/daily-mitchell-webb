@@ -22,13 +22,18 @@ ypi.playlistInfo("AIzaSyBBaAU0A2THJHmjD3EZkq-8-D6eUpexqUA", "PLbUlQ_lGL2i1uwmypS
   var video = playlistItems[Math.floor(Math.random()*playlistItems.length)];
   var videoUrl = 'https://www.youtube.com/watch?v=' + video.resourceId.videoId;
   var message = video.title + ' ' + videoUrl;
+
+  var now = new Date();
+
   console.log('Posting ' + message);
   tweetBot.tweet(message);
-  slackBot.postMessageToChannel('random', message, params).fail(function(data) {
-    console.log(data);
-  }).then(function(data) {
-    process.exit();
+
+  // If today is Saturday or Sunday then don't post a message.
+  if (now.getDay() != 0 || now.getDay() != 6) {
+    slackBot.postMessageToChannel('random', message, params).fail(function(data) {
+      console.log(data);
+    }).then(function(data) {
+      process.exit();
+    });
+  }
   });
-});
-
-
