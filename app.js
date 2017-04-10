@@ -29,6 +29,7 @@ ypi.playlistInfo("AIzaSyBBaAU0A2THJHmjD3EZkq-8-D6eUpexqUA", "PLbUlQ_lGL2i1uwmypS
   tweetBot.tweet(message);
 
   // If today is Saturday or Sunday then don't post a message.
+  console.log('Day is' + now.getDay());
   if (now.getDay() != 0 || now.getDay() != 6) {
     slackBot.postMessageToChannel('random', message, params).fail(function(data) {
       console.log(data);
